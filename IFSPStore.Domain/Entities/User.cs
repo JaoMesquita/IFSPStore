@@ -1,32 +1,27 @@
 ﻿using IFSPStore.Domain.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IFSPStore.Domain.Entities
 {
     public class User : BaseEntity<int>
     {
-        public User(int id, string nome, string senha, string login, string email, DateTime dataCadastro, DateTime dataLogin):base(id)
+        public User(int id, string name, string password, string login, string email, DateTime regDate, DateTime loginDate):base(id)
         {
             Id = id;
-            Nome = nome;
-            Senha = senha;
+            Name = name;
+            Password = password;
             Login = login;
             Email = email;
-            DataCadastro = dataCadastro;
-            DataLogin = dataLogin;
+            RegDate = regDate;
+            LoginDate = loginDate;
 
         }
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Senha { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
-        public DateTime DataCadastro { get; set; }
-        public DateTime DataLogin { get; set; }
+        public DateTime RegDate { get; set; }
+        public DateTime LoginDate { get; set; }
 
     }
 }
