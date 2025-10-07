@@ -4,6 +4,10 @@ namespace IFSPStore.Domain.Entities
 {
     public class Customer : BaseEntity<int>
     {
+        public Customer()
+        {
+            
+        }
         public Customer(int id, string name, string address, string document, string district, City city) : base(id)
         {
             Name = name;
