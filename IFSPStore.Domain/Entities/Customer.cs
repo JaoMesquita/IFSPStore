@@ -4,22 +4,20 @@ namespace IFSPStore.Domain.Entities
 {
     public class Customer : BaseEntity<int>
     {
-        public Customer(int id, string nome, string endereco, string documento, string bairro, string cidade, int IdCidade, City city) : base(id)
+        public Customer(int id, string name, string address, string document, string district, City city) : base(id)
         {
-            Nome = nome;
-            Endereco = endereco;
-            Documento = documento;
-            Bairro = bairro;
-            Cidade = cidade;
-            IdCidade = idCidade;
+            Name = name;
+            Address = address;
+            Document = document;
+            District = district;
+            City = city;
         }
 
-        public string Nome { get; set; }
-        public string Endereco { get; set; }
-        public string Documento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public int idCidade { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Document { get; set; }
+        public string District { get; set; }
+        public City City{ get; set; }
 
     }
 }

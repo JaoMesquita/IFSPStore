@@ -4,23 +4,38 @@ namespace IFSPStore.Domain.Entities
 {
     public class Sale : BaseEntity<int>
     {
-        public Sale(int id, DateTime saleDate, double totalValue, int userId, int customerId, bool active) : base(id)
+        public Sale(int id, DateTime saleDate, decimal salesTotal, User salesman, Customer customer) : base(id)
         {
-            Id = id;
             SaleDate = saleDate;
-            TotalValue = totalValue;
-            UserId = userId;
-            CustomerId = customerId;
-            Active = active;
+            SalesTotal = salesTotal;
+            Salesman = salesman;
+            Customer = customer;
+            SaleItens = new List<SaleItem>();
         }
 
-        public int Id { get; set; }
         public DateTime SaleDate { get; set; }
-        public double TotalValue { get; set; }
-        public int UserId { get; set; }
-        public int CustomerId { get; set; }
-        public bool Active { get; set; }
+        public decimal SalesTotal { get; set; }
+        public User Salesman { get; set; }
+        public Customer Customer { get; set; }
+        public List<SaleItem> SaleItens { get; set; }
+    }
 
+    public class SaleItem : BaseEntity<int>
+    {
+        public SaleItem(int id, Sale sale, Product product, decimal quantity, decimal unitPrice, decimal totalPrice) : base(id)
+        {
+            Sale = sale;
+            Product = product;
+            Quantity = quantity;
+            UnitPrice = unitPrice;
+            TotalPrice = totalPrice;
+        }
+
+        public Sale Sale { get; set; }
+        public Product Product { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 
 }

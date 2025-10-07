@@ -5,24 +5,22 @@ namespace IFSPStore.Domain.Entities
     public class Product : BaseEntity<int>
     {
 
-        public Product(int id, string name, double price, int amount, DateTime purchaseDate, string unitSale, int GroupId):base(id)
+        public Product(int id, string name, decimal price, decimal quantity, DateTime purchaseDate, string salesUnity, Category category):base(id)
         {
-            Id = id;
             Name = name;
             Price = price;
-            Amount = amount;
+            Quantity = quantity;
             PurchaseDate = purchaseDate;
-            UnitSale = unitSale;
-            GroupId = groupId;
+            SalesUnity = salesUnity;
+            Category = category;
         }
 
-        public int id { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
-        public int Amount { get; set; }
+        public decimal Price { get; set; }
+        public decimal Quantity { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public string UnitSale { get; set; }
-        public int groupId { get; set; }
+        public string SalesUnity { get; set; }
+        public Category Category { get; set; }
 
     }
 }
