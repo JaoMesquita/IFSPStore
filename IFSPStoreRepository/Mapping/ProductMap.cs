@@ -20,7 +20,7 @@ namespace IFSPStore.Repository.Mapping
                 .HasMaxLength(100);
             builder.Property(prop => prop.Price);
             builder.Property(prop => prop.Quantity);
-            builder.Property(prop => prop.SalesUnit)
+            builder.Property(prop => prop.SalesUnity)
                 .HasMaxLength(10);
             builder.HasOne( prop => prop.Category)
                 .WithMany()

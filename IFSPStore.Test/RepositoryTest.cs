@@ -1,6 +1,6 @@
 ﻿using IFSPStore.Domain.Entities;
 using IFSPStoreRepository.Context;
-using System.Diagnostics;
+using IFSPStoreRepository.Repository;
 using System.Text.Json;
 
 namespace IFSPStore.Test
@@ -9,6 +9,8 @@ namespace IFSPStore.Test
     public sealed class RepositoryTest
     {
         [TestMethod]
+        
+        /*
         public void TestCategory()
         {
             using (var context = new IFSPStoreContext())
@@ -33,6 +35,44 @@ namespace IFSPStore.Test
                 }
                 Console.WriteLine("List done!");
             }
+        }
+
+        */
+
+
+        public void TestProduct()
+        {
+            var context = new IFSPStoreContext();
+            var _categoryRepository = new BaseRepository<Category>(context);
+            var _productRepository = new BaseRepository<Product>(context);
+
+            var category1 = new Category();
+            category1.Name = "Enlatados";
+            _categoryRepository.Insert(category1);
+
+            var category2 = new Category();
+            category2.Name = "Saudáveis";
+            _categoryRepository.Insert(category2);
+
+            var prod1 = new Product();
+            prod1.Name = "Sardinha";
+            prod1.Price = 10.55M;
+            prod1.Quantity = 55;
+            prod1.SalesUnity = "Lata";
+            prod1.PurchaseDate = DateTime.Now;
+            prod1.Category = category1;
+            _productRepository.Insert(prod1);
+
+            var prod2 = new Product();
+            prod2.Name = "Whey Protein";
+            prod2.Price = 155.55M;
+            prod2.Quantity = 61;
+            prod2.SalesUnity = "Pote";
+            prod2.PurchaseDate = DateTime.Now;
+            prod2.Category = category2;
+            _productRepository.Insert(prod2);
+
+            Console.WriteLine("Products added!");
         }
     }
 }

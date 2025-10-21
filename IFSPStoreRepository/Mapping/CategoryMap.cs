@@ -9,7 +9,7 @@ namespace IFSPStore.Repository.Mapping
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.ToTable("Abobrinha");
+            builder.ToTable("Category");
             builder.HasKey(prop => prop.Id);
             builder.Property(prop => prop.Name)
                 .IsRequired()

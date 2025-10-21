@@ -1,6 +1,6 @@
-﻿using IFSPStoreRepository.Mapping;
-using IFSPStore.Domain.Entities;
+﻿using IFSPStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using IFSPStore.Repository.Mapping;
 
 namespace IFSPStoreRepository.Context
 {
